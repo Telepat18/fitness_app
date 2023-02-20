@@ -78,46 +78,8 @@ class _LoginPageState extends State<LoginPage> {
                 _buildForgotPassword(),
                 _buildLoginButton(),
                 _buildDivider(),
-                SizedBox(
-                  height: 56,
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: facebookButtonStyle,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset(
-                          AppIcons.fbIcon,
-                          height: 24,
-                          width: 24,
-                        ),
-                        const SizedBox(width: 24),
-                        const Text(AppStrings.facebook),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 56,
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: googleButtonStyle,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset(
-                          AppIcons.googleIcon,
-                          height: 24,
-                          width: 24,
-                        ),
-                        const SizedBox(width: 24),
-                        const Text(AppStrings.google),
-                      ],
-                    ),
-                  ),
-                ),
+                _facebookButton(),
+                _googleButton(),
               ],
             ),
           ),
@@ -238,6 +200,52 @@ class _LoginPageState extends State<LoginPage> {
         ),
         divider,
       ],
+    );
+  }
+
+  Widget _facebookButton() {
+    return SizedBox(
+      height: 56,
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: () {},
+        style: facebookButtonStyle,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              AppIcons.fbIcon,
+              height: 24,
+              width: 24,
+            ),
+            const SizedBox(width: 24),
+            const Text(AppStrings.facebook),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _googleButton() {
+    return SizedBox(
+      height: 56,
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: () {},
+        style: googleButtonStyle,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              AppIcons.googleIcon,
+              height: 24,
+              width: 24,
+            ),
+            const SizedBox(width: 24),
+            const Text(AppStrings.google),
+          ],
+        ),
+      ),
     );
   }
 }
