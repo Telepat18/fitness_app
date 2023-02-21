@@ -9,4 +9,5 @@ abstract class AppStrings {
   static const or = 'Or';
   static const facebook = 'Continue with Facebook';
   static const google = 'Continue with Google';
+  static const skip = 'Skip';
 }

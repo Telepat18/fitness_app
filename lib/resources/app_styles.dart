@@ -51,4 +51,10 @@ abstract class AppStyles {
     fontWeight: FontWeight.w600,
     fontFamily: 'Poppins',
   );
+  static const skipText = TextStyle(
+    color: Colors.black,
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Poppins',
+  );
 }
