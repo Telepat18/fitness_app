@@ -2,6 +2,8 @@ import 'package:equatable/equatable.dart';
 import 'package:fitness_app/bloc/base_cubit.dart';
 import 'package:flutter/material.dart';
 
+import '../service/preferenses_service.dart';
+
 part 'app_control_state.dart';
 
 class AppControlCubit extends BaseCubit<AppControlState> {
