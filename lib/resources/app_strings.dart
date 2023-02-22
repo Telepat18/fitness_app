@@ -13,4 +13,8 @@ abstract class AppStrings {
   static const welcomeToFitnessApp = 'Welcome to our fitness app';
   static const stayHealthyWorkoutTogether = 'stay healthy, workout together';
   static const createAcount = 'Create Account';
+  static const whatsYourGender = 'Whats Your Gender?';
+  static const male = 'Male';
+  static const female = 'Female';
+  static const next = 'Next';
 }
