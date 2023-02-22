@@ -10,4 +10,7 @@ abstract class AppStrings {
   static const facebook = 'Continue with Facebook';
   static const google = 'Continue with Google';
   static const skip = 'Skip';
+  static const welcomeToFitnessApp = 'Welcome to our fitness app';
+  static const stayHealthyWorkoutTogether = 'stay healthy, workout together';
+  static const createAcount = 'Create Account';
 }

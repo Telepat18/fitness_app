@@ -57,4 +57,22 @@ abstract class AppStyles {
     fontWeight: FontWeight.w500,
     fontFamily: 'Poppins',
   );
+  static const welcomeToFitnessApp = TextStyle(
+    color: Colors.black,
+    fontSize: 32,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Poppins',
+  );
+  static const stayHealthy = TextStyle(
+    color: AppColors.grey,
+    fontSize: 12,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w600,
+  );
+  static const createAccountText = TextStyle(
+    color: Colors.black,
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Poppins',
+  );
 }
