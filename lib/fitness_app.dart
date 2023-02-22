@@ -1,4 +1,4 @@
-import 'package:fitness_app/ui/pages/start_page/fitness_text_app_bar.dart';
+import 'package:fitness_app/ui/pages/questionnaire_pages/gender_page.dart';
 import 'package:flutter/material.dart';
 
 import 'l10n/generated/fitness_localizations.dart';
@@ -9,7 +9,7 @@ class FitnessApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: StartPage(),
+      home: GenderPage(),
       localizationsDelegates: FitnessLocalizations.localizationsDelegates,
       supportedLocales: FitnessLocalizations.supportedLocales,
     );

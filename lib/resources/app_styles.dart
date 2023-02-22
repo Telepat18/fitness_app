@@ -75,4 +75,16 @@ abstract class AppStyles {
     fontWeight: FontWeight.w600,
     fontFamily: 'Poppins',
   );
+  static const styleWhatsYourGender = TextStyle(
+    color: Colors.black,
+    fontSize: 32,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Poppins',
+  );
+  static const gender = TextStyle(
+    color: Colors.black,
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Poppins',
+  );
 }
