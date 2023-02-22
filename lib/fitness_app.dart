@@ -1,4 +1,4 @@
-import 'package:fitness_app/views/app_bars/fitness_text_app_bar.dart';
+import 'package:fitness_app/ui/pages/start_page/fitness_text_app_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'l10n/generated/fitness_localizations.dart';
@@ -9,7 +9,7 @@ class FitnessApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: FitnessTextAppBar(),
+      home: StartPage(),
       localizationsDelegates: FitnessLocalizations.localizationsDelegates,
       supportedLocales: FitnessLocalizations.supportedLocales,
     );
