@@ -1,7 +1,7 @@
 import 'package:fitness_app/pages/login_page/login_page.dart';
 import 'package:flutter/material.dart';
 
-import 'config/l10n//fitness_localizations.dart';
+import 'config/l10n/fitness_localizations.dart';
 
 class FitnessApp extends StatelessWidget {
   const FitnessApp({super.key});
