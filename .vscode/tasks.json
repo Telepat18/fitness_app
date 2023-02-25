@@ -2,73 +2,128 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Localize",
+            "label": "Fitness: generate native splash",
             "type": "shell",
             "command": "flutter",
             "group": "build",
-            "options": {
-                "cwd": "${cwd}"
-            },
-            "runOptions": {
-                "instanceLimit": 1,
-                "reevaluateOnRerun": false
-            },
-            "args": ["gen-l10n"],
-            "presentation": {
-                "echo": true,
-                "focus": true,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": false
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Build Models",
-            "type": "shell",
-            "command": "flutter",
-            "group": "build",
-            "options": {
-                "cwd": "${cwd}"
-            },
             "runOptions": {
                 "instanceLimit": 1,
                 "reevaluateOnRerun": false
             },
             "args": [
-                "pub", 
-                "run", 
-                "build_runner",
-                "build", 
-                "--delete-conflicting-outputs",
-            ],
-            "presentation": {
-                "echo": true,
-                "focus": true,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": false
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Icons Launcher",
-            "type": "shell",
-            "command": "flutter",
-            "group": "build",
-            "options": {
-                "cwd": "${cwd}"
-            },
-            "runOptions": {
-                "instanceLimit": 1,
-                "reevaluateOnRerun": false
-            },
-            "args": [ 
-                "pub", 
+                "pub",
                 "run",
-                "flutter_launcher_icons:main", 
-                "-f", 
-                "launcher_icon.yaml", 
+                "flutter_native_splash:create"
+            ],
+            "presentation": {
+                "echo": true,
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Fitness: run tests",
+            "type": "shell",
+            "command": "flutter",
+            "group": "build",
+            "runOptions": {
+                "instanceLimit": 1,
+                "reevaluateOnRerun": false
+            },
+            "args": [
+                "test"
+            ],
+            "presentation": {
+                "echo": true,
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Fitness: analyze",
+            "type": "shell",
+            "command": "flutter",
+            "group": "build",
+            "runOptions": {
+                "instanceLimit": 1,
+                "reevaluateOnRerun": false
+            },
+            "args": [
+                "analyze"
+            ],
+            "presentation": {
+                "echo": true,
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Fitness: clean",
+            "type": "shell",
+            "command": "flutter",
+            "group": "build",
+            "runOptions": {
+                "instanceLimit": 1,
+                "reevaluateOnRerun": false
+            },
+            "args": [
+                "clean"
+            ],
+            "presentation": {
+                "echo": true,
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Fitness: dependencies",
+            "type": "shell",
+            "command": "flutter",
+            "group": "build",
+            "runOptions": {
+                "instanceLimit": 1,
+                "reevaluateOnRerun": false
+            },
+            "args": [
+                "pub",
+                "get"
+            ],
+            "presentation": {
+                "echo": true,
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Fitness: build",
+            "type": "shell",
+            "command": "flutter",
+            "group": "build",
+            "runOptions": {
+                "instanceLimit": 1,
+                "reevaluateOnRerun": false
+            },
+            "args": [
+                "pub",
+                "run",
+                "build_runner",
+                "build",
+                "--delete-conflicting-outputs"
             ],
             "presentation": {
                 "echo": true,
@@ -80,18 +135,21 @@
             "problemMatcher": []
         },
         {
-            "label": "Build APK (Release)",
+            "label": "Fitness: build obfuscate apk",
             "type": "shell",
             "command": "flutter",
             "group": "build",
-            "options": {
-                "cwd": "${cwd}"
-            },
             "runOptions": {
                 "instanceLimit": 1,
                 "reevaluateOnRerun": false
             },
-            "args": ["build", "apk", "--release"],
+            "args": [
+                "build",
+                "apk",
+                "--split-debug-info",
+                "--obfuscate",
+                "--release"
+            ],
             "presentation": {
                 "echo": true,
                 "focus": true,
@@ -102,18 +160,26 @@
             "problemMatcher": []
         },
         {
-            "label": "Build App Bundle (Release)",
+            "label": "Fitness: localize",
             "type": "shell",
             "command": "flutter",
             "group": "build",
-            "options": {
-                "cwd": "${cwd}"
-            },
             "runOptions": {
                 "instanceLimit": 1,
                 "reevaluateOnRerun": false
             },
-            "args": ["build", "appbundle", "--release"],
+            "args": [
+                "gen-l10n",
+                "--arb-dir=lib/config/l10n",
+                "--template-arb-file=fitness_en.arb",
+                "--no-synthetic-package",
+                "--output-dir=lib/config/l10n",
+                "--output-class=FitnessLocalizations",
+                "--output-localization-file=fitness_localizations.dart",
+                "--preferred-supported-locales='en'",
+                "--untranslated-messages-file=lib/config/l10n/missing_localizations.json",
+                "--no-use-deferred-loading"
+            ],
             "presentation": {
                 "echo": true,
                 "focus": true,
@@ -124,92 +190,40 @@
             "problemMatcher": []
         },
         {
-            "label": "Build IPA (Release)",
+            "label": "Fitness: rebuild",
+            "detail": "Clean and Rebuild App",
+            "group": "build",
+            "dependsOn": [
+                "Fitness: clean",
+                "Fitness: dependencies",
+                "Fitness: build",
+                "Fitness: localize"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        },
+        {
+            "label": "Fitness: create new launch icons",
             "type": "shell",
             "command": "flutter",
             "group": "build",
-            "options": {
-                "cwd": "${cwd}"
-            },
             "runOptions": {
                 "instanceLimit": 1,
                 "reevaluateOnRerun": false
             },
-            "args": ["build", "ios", "--release"],
+            "args": [
+                "pub",
+                "run",
+                "flutter_launcher_icons:main"
+            ],
             "presentation": {
                 "echo": true,
-                "focus": true,
+                "focus": false,
                 "panel": "shared",
                 "showReuseMessage": true,
                 "clear": false
             },
             "problemMatcher": []
         },
-        {
-            "label": "Rename App Package",
-            "type": "shell",
-            "command": "flutter pub run change_app_package_name:main com.bildly.eu",
-            "group": "build",
-            "options": {
-                "cwd": "${cwd}"
-            },
-            "runOptions": {
-                "instanceLimit": 1,
-                "reevaluateOnRerun": false
-            },
-            "args": [],
-            "presentation": {
-                "echo": true,
-                "focus": true,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": false
-            },
-            "problemMatcher": []
-        },    
-        {
-            "label": "Generate Splash",
-            "type": "shell",
-            "command": "flutter clean&&flutter pub get&&flutter pub run flutter_native_splash:create",
-            "group": "build",
-            "options": {
-                "cwd": "${cwd}"
-            },
-            "runOptions": {
-                "instanceLimit": 1,
-                "reevaluateOnRerun": false
-            },
-            "args": [],
-            "presentation": {
-                "echo": true,
-                "focus": true,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": false
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Remove Splash",
-            "type": "shell",
-            "command": "flutter pub run flutter_native_splash:remove --path=splash_icon.yaml",
-            "group": "build",
-            "options": {
-                "cwd": "${cwd}"
-            },
-            "runOptions": {
-                "instanceLimit": 1,
-                "reevaluateOnRerun": false
-            },
-            "args": [],
-            "presentation": {
-                "echo": true,
-                "focus": true,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": false
-            },
-            "problemMatcher": []
-        }
     ]
 }

@@ -1,61 +1,32 @@
-import 'package:fitness_app/resources/app_colors.dart';
 import 'package:fitness_app/resources/app_icons.dart';
 import 'package:fitness_app/resources/app_strings.dart';
-import 'package:fitness_app/resources/app_styles.dart';
+import 'package:fitness_app/utils/extensions/build_context_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../bloc/login_page/login_page_cubit.dart';
+import '../../config/di/modules/locator.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
+
+  Widget wrappedRoute(BuildContext context) {
+    return BlocProvider(
+      create: (_) => locator<LoginPageCubit>(),
+      child: this,
+    );
+  }
 }
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormBuilderState>();
   bool obscureText = false;
-  final ButtonStyle loginButtonStyle = ElevatedButton.styleFrom(
-    textStyle: AppStyles.textStyleLogin,
-    elevation: 0,
-    padding: const EdgeInsets.symmetric(horizontal: 16),
-    foregroundColor: Colors.white,
-    backgroundColor: AppColors.palettes,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(12.0),
-      ),
-    ),
-  );
-  final ButtonStyle facebookButtonStyle = ElevatedButton.styleFrom(
-    textStyle: AppStyles.textStyleGoogle,
-    elevation: 0,
-    padding: const EdgeInsets.symmetric(horizontal: 16),
-    foregroundColor: Colors.white,
-    backgroundColor: AppColors.blue,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(12.0),
-      ),
-    ),
-  );
-  final ButtonStyle googleButtonStyle = ElevatedButton.styleFrom(
-    side: const BorderSide(
-      width: 1,
-      color: AppColors.grey,
-    ),
-    textStyle: AppStyles.textStyleFb,
-    elevation: 0,
-    padding: const EdgeInsets.symmetric(horizontal: 16),
-    foregroundColor: Colors.black,
-    backgroundColor: Colors.white,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(12.0),
-      ),
-    ),
-  );
+  LoginPageCubit get _cubit => context.read();
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +40,8 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 _buildFitnessText(),
-                const Text(
-                  AppStrings.welcomeToFitness,
-                  style: AppStyles.textStyleWelcomeToFitness,
+                Text(
+                  context.strings.welcomeToFitness,
                 ),
                 _buildEmailField(),
                 _buildPasswordField(context),
@@ -93,15 +63,13 @@ class _LoginPageState extends State<LoginPage> {
       child: RichText(
         textAlign: TextAlign.center,
         text: const TextSpan(
-          text: AppStrings.fit,
-          style: AppStyles.textStyleFit,
-          children: [
-            TextSpan(
-              text: AppStrings.ness,
-              style: AppStyles.textStyleNess,
-            )
-          ],
-        ),
+            // text: context.strings.fit,
+            // children: const [
+            //   TextSpan(
+            //     text: AppStrings.ness,
+            //   )
+            // ],
+            ),
       ),
     );
   }
@@ -111,14 +79,6 @@ class _LoginPageState extends State<LoginPage> {
       name: AppStrings.email,
       decoration: const InputDecoration(
         hintText: AppStrings.email,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(12.0),
-          ),
-          borderSide: BorderSide(
-            color: AppColors.grey,
-          ),
-        ),
       ),
     );
   }
@@ -140,14 +100,6 @@ class _LoginPageState extends State<LoginPage> {
           },
         ),
         hintText: AppStrings.password,
-        border: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(12.0),
-          ),
-          borderSide: BorderSide(
-            color: AppColors.grey,
-          ),
-        ),
       ),
     );
   }
@@ -161,7 +113,6 @@ class _LoginPageState extends State<LoginPage> {
         },
         child: const Text(
           AppStrings.forgottenYourPassword,
-          style: AppStyles.textStyleForgotPassword,
         ),
       ),
     );
@@ -172,7 +123,6 @@ class _LoginPageState extends State<LoginPage> {
       width: double.infinity,
       height: 56,
       child: ElevatedButton(
-        style: loginButtonStyle,
         onPressed: () {
           //TODO: Add functionality for Log in
         },
@@ -184,7 +134,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget _buildDivider() {
     final divider = Expanded(
       child: Container(
-        color: AppColors.grey,
         height: 1,
       ),
     );
@@ -195,7 +144,6 @@ class _LoginPageState extends State<LoginPage> {
           padding: EdgeInsets.all(8.0),
           child: Text(
             AppStrings.or,
-            style: AppStyles.textStyleOr,
           ),
         ),
         divider,
@@ -209,7 +157,6 @@ class _LoginPageState extends State<LoginPage> {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {},
-        style: facebookButtonStyle,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -232,7 +179,6 @@ class _LoginPageState extends State<LoginPage> {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {},
-        style: googleButtonStyle,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

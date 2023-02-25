@@ -17,4 +17,8 @@ abstract class AppStrings {
   static const male = 'Male';
   static const female = 'Female';
   static const next = 'Next';
+  static const whatsYourGoal = 'Whats Your Goal?';
+  static const buildMuscle = 'Build Muscle';
+  static const power = 'Power';
+  static const weightLoss = 'Weight Loss';
 }

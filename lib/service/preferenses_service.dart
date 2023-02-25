@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
-import '../l10n/generated/fitness_localizations.dart';
+import '../config/l10n/fitness_localizations.dart';
 
 class PreferencesService {
   static const _preferencesBox = '_preferencesBox';

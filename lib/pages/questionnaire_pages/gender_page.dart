@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../resources/app_colors.dart';
-import '../../../resources/app_strings.dart';
-import '../../../resources/app_styles.dart';
+import '../../resources/app_strings.dart';
 
 class GenderPage extends StatefulWidget {
   const GenderPage({super.key});
@@ -31,7 +29,6 @@ class _GenderPageState extends State<GenderPage> {
     elevation: 0,
     padding: const EdgeInsets.symmetric(horizontal: 16),
     foregroundColor: Colors.white,
-    backgroundColor: AppColors.palettes,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(
         Radius.circular(12.0),
@@ -55,7 +52,6 @@ class _GenderPageState extends State<GenderPage> {
                 ),
                 const Text(
                   AppStrings.whatsYourGender,
-                  style: AppStyles.styleWhatsYourGender,
                 ),
                 const Spacer(),
                 _buildMaleButton(),
@@ -99,7 +95,6 @@ class _GenderPageState extends State<GenderPage> {
           onPressed: () {},
           child: const Text(
             AppStrings.skip,
-            style: AppStyles.skipText,
           ),
         ),
       ],
@@ -124,7 +119,6 @@ class _GenderPageState extends State<GenderPage> {
               ),
               const Text(
                 AppStrings.male,
-                style: AppStyles.gender,
               ),
             ],
           ),
@@ -151,7 +145,6 @@ class _GenderPageState extends State<GenderPage> {
               ),
               const Text(
                 AppStrings.female,
-                style: AppStyles.gender,
               ),
             ],
           ),
@@ -172,7 +165,6 @@ class _GenderPageState extends State<GenderPage> {
             onPressed: () {},
             child: const Text(
               AppStrings.next,
-              style: AppStyles.textStyleLogin,
             ),
           ),
         ),

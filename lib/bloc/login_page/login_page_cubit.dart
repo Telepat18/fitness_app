@@ -1,17 +1,19 @@
 import 'package:equatable/equatable.dart';
-import 'package:fitness_app/bloc/base_cubit.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:injectable/injectable.dart';
 
-import '../service/preferenses_service.dart';
+import '../../service/preferenses_service.dart';
+import '../core/base_cubit.dart';
 
-part 'app_control_state.dart';
+part 'login_page_state.dart';
 
-class AppControlCubit extends BaseCubit<AppControlState> {
+@injectable
+class LoginPageCubit extends BaseCubit<LoginPageState> {
   final PreferencesService _preferencesService;
 
-  AppControlCubit(
+  LoginPageCubit(
     this._preferencesService,
-    AppControlState initialState,
+    LoginPageState initialState,
   ) : super(initialState);
 
   @override
