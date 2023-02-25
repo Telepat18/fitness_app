@@ -1,21 +1,21 @@
-part of 'app_control_cubit.dart';
+part of 'login_page_cubit.dart';
 
 @immutable
-class AppControlState extends Equatable {
+class LoginPageState extends Equatable {
   final Locale locale;
 
   final String errorMessage;
 
-  const AppControlState({
+  const LoginPageState({
     required this.locale,
     this.errorMessage = '',
   });
 
-  AppControlState copyWith({
+  LoginPageState copyWith({
     Locale? locale,
     String? errorMessage,
   }) {
-    return AppControlState(
+    return LoginPageState(
       locale: locale ?? this.locale,
       errorMessage: errorMessage ?? this.errorMessage,
     );
